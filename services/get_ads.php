@@ -17,23 +17,22 @@
 // Gestion des erreurs en mode Exception
         $lcn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $lcn->exec("SET NAMES 'UTF8'");
-        
+
 //preparation de la requete / créaion objet statement
         $sth = $lcn->prepare($sql);
-        
 //éxécution de la requete
+
         $sth->execute();
-        
 // Recupération de toutes les lignes du tableau d'objets
         $result = $sth->fetchAll(PDO::FETCH_ASSOC);
-        closeCursor();
+
+        $sth->closeCursor();
 //deconnexion
-        
         $lcn = null;
-        //encodage en Json 
         $lsResultas = json_encode($result);
+        var_dump($result);
         var_dump($lsResultas);
-       
+        
     }
 //En cas d'echec on lève une exeception
     catch (PDOException $e) {
