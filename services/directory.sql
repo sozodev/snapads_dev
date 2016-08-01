@@ -40,9 +40,9 @@ INSERT INTO `sozounltsnapads`.`locations` (`street_name`, `city_name`, `zipcode`
 
 
 --
---Reset et insertions des companies
+--OK
 --
-ALTER TABLE companies AUTO_INCREMENT = 1;
+
 INSERT INTO `sozounltsnapads`.`companies` (`id_location`, `id_category`, `company_name`, `company_siret`) VALUES ('1', '2', 'Karrington création', '732 829 320 00074');
 
 
