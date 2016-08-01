@@ -47,9 +47,8 @@ INSERT INTO `sozounltsnapads`.`companies` (`id_location`, `id_category`, `compan
 
 
 --
---Reset et insertions des utilisateurs
+--OK
 --
-ALTER TABLE users AUTO_INCREMENT = 1;
 INSERT INTO `sozounltsnapads`.`users` (`id_location`, `id_company`, `user_firstname`, `user_lastname`, `user_nickname`, `user_login`, `user_password`, `user_email`, `user_telephone`, `user_last_pass_gen`, `user_active`, `user_deleted`, `user_type`) VALUES ('1', '1', 'Alban', 'Mabiala', 'karrington', 'dready92', '415263crap', 'karrington.creation@gmail.com', '0611196737', '415263Cr@p', '1', '1', '1');
 
 
