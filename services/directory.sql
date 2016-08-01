@@ -31,18 +31,12 @@ INSERT INTO `sozounltsnapads`.`categories` (`category_name`, `category_activate`
 
 
 -
--- Reset et Insertions des locations
+-- OK
 --
-
-
 INSERT INTO `sozounltsnapads`.`locations` (`street_name`, `city_name`, `zipcode`, `country`) VALUES ('22 bis avenue du président kennedy', 'Rosny sous bois ', '93110', 'France');
 
 
---
--- une photo d'pen d'un add
---
-ALTER TABLE photos AUTO_INCREMENT = 1;
-INSERT INTO `sozounltsnapads`.`photos` (`photo_name`, `photo_folder`) VALUES ('profil.jpg', 'photo');
+
 
 
 --
@@ -90,5 +84,11 @@ INSERT INTO `ads` (`id_ad`, `id_category`, `id_photo`, `id_location`, `id_user`,
 (66, 1, 1, 1, 1, 'dfgfgfgfdgfg', '0000-00-00', '0000-00-00', '12.00', '15.00', '99.99999', '0.00000', 'lorem ipsum sit dolor amet', 1, 1),
 (67, 1, 1, 1, 1, 'dfgfgfgfdgfg', '0000-00-00', '0000-00-00', '12.00', '15.00', '99.99999', '0.00000', 'lorem ipsum sit dolor amet', 1, 1);
 
+
+--
+-- une photo dépend d'un add
+--
+ALTER TABLE photos AUTO_INCREMENT = 1;
+INSERT INTO `sozounltsnapads`.`photos` (`photo_name`, `photo_folder`) VALUES ('profil.jpg', 'photo');
 
 
