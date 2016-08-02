@@ -18,12 +18,14 @@ $(function validation() {
     $("#envoyer").click(function () {
 
         valid = true;
+        
+        //si tous les champs ne sont pas vides alors faire la requete
 
         if ($("#ad_category").val() == "") {
             $("#ad_category").prev(".error-message").fadeIn().text("ad_category");
             valid = false;
         } else {//masque le texte en fondu
-            $("#ad_category").prev(".error-message").fadeOut();                        //$("#ad_category").css("border","#FF0000");
+            $("#ad_category").prev(".error-message").fadeOut();                        
         }
 
 
