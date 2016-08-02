@@ -5,22 +5,5 @@
  */
 
 
-$(function(){
-    
-    
-    
-});
 
 
-
-$function(){
-            $(#valider).click(function){
-            valid = 1;
-            //verif du champ catégorie
-            if ($(#ad_photo_name).val() == ""){
-            $(#message).show().text("Entrez un nom de photo");
-            valid = 0;
-            }
-            else
-            {$(#message).hide();
-            }

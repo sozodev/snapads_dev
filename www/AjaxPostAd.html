@@ -10,55 +10,22 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+        <script src="js/PostAds.js"></script> 
+
+        <style>
+
+            .error-message{
+                color: red;
+                font-size: 2em;
+                display: none;
+            };
+            
+            .msg_error {
+              border: solid red 1px;  
+            };
 
 
-
-        <script>
-
-            $(document).ready(function () {
-
-                var ad_category = $("#ad_category").val();
-                var id_location = $("#location").val();
-                var id_user = $("#user").val();
-                var adTitle = $("#adTitle").val();
-                var beginDate = $("#beginDate").val();
-                var adEndDate = $("#adEndDate").val();
-                var pos_long = $("#pos_long").val();
-                var pos_lat = $("#pos_lat").val();
-                var adNewPrice = $("#adNewPrice").val();
-                var adOldPrice = $("#adOldPrice").val();
-                var ad_description = $("#ad_description").val();
-                var ad_photo_name = $("#ad_photo_name").val();
-                var ad_photo_folder = $("#ad_photo_folder").val();
-                var ad_state = $("#ad_state").val();
-                var ad_activation = $("#ad_activation").val();
-
-                var msg_all = "Merci de remplir tous les champs";
-                var msg = "Merci de remplir ce champs";
-
-                console.log("valeur ad_category :", ad_category);
-                console.log("valeur location :", id_location);
-                console.log("valeur id_user :", id_user);
-                console.log("valeur adTitle :", adTitle);
-                console.log("valeur beginDate :", beginDate);
-                console.log("valeur adEndDate :", adEndDate);
-                console.log("valeur pos_long :", pos_long);
-                console.log("valeur pos_lat :", pos_lat);
-                console.log("valeur adNewPrice :", adNewPrice);
-                console.log("valeur adOldPrice :", adOldPrice);
-                console.log("valeur ad_description :", ad_description);
-                console.log("valeur ad_photo_name :", ad_photo_name);
-                   console.log("valeur ad_photo_folder :", ad_photo_folder);
-                console.log("valeur ad_state :", ad_state);
-                console.log("valeur ad_activation :", ad_activation);
-
-
-
-
-            });
-        </script>
-
-
+        </style>
 
 
 
@@ -91,8 +58,8 @@
                     </div>
                     <div class="col-md-10">
                         <select id="ad_category" name="ad_category" class="form-control" size="1">
-                            <option value="1">loisir</option>
-                            <option value="2">automobile</option>
+                            <option value="2">loisir</option>
+                            <option value="1">automobile</option>
                         </select>
                     </div>
                 </div>
@@ -102,6 +69,7 @@
                         <label for="location" class="control-label">ID adresse</label>
                     </div>
                     <div class="col-md-10">
+                           <div class="error-message">erreur</div>
                         <input type="text" name="location" class="form-control" id="location" value="1">
                     </div>
                 </div>
@@ -111,7 +79,9 @@
                         <label for="user" class="control-label">ID utilisateur</label>
                     </div>
                     <div class="col-md-10">
+                        <div class="error-message">erreur</div>
                         <input type="text" name="user" class="form-control" id="user" value="2">
+
                     </div>
                 </div>
 
@@ -121,7 +91,9 @@
                         <label for="adTitle" class="control-label">Titre de l'annonce</label>
                     </div>
                     <div class="col-md-10">
-                        <input type="text" name="adTitle" class="form-control" id="adTitle" value="Annonce de denière minute">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="adTitle" class="form-control" id="adTitle" value="Annonce desss denière minute">
+
                     </div>
                 </div>
 
@@ -130,6 +102,7 @@
                         <label for="beginDate" class="control-label">Date de debut</label>
                     </div>
                     <div class="col-md-10">
+                        <div class="error-message">erreur</div>
                         <input type="date" name="beginDate" class="form-control" id="beginDate" value="2017-07-14">
                     </div>
                 </div>
@@ -139,6 +112,7 @@
                         <label for="adEndDate" class="control-label ">Date de fin</label>
                     </div>
                     <div class="col-md-10">
+                        <div class="error-message">erreur</div>
                         <input type="date"  max="2017-07-15" min="2017-07-15" name="adEndDate" class="form-control" id="adEndDate"  value="2017-07-15">
                     </div>
                 </div>
@@ -148,6 +122,7 @@
                         <label for="pos_long" class="control-label">longitude</label>
                     </div>
                     <div class="col-md-10">
+                        <div class="error-message">erreur</div>
                         <input type="text" name="pos_long" class="form-control" id="pos_long" value="25555">
                     </div>
                 </div>
@@ -158,6 +133,7 @@
                         <label for="pos_lat" class="control-label">latitude</label>
                     </div>
                     <div class="col-md-10">
+                        <div class="error-message">erreur</div>
                         <input type="text" name="pos_lat" class="form-control" id="pos_lat" value="000">
                     </div>
                 </div>
@@ -166,6 +142,7 @@
                         <label for="adNewPrice" class="control-label">Nouveau prix (€)</label>
                     </div>
                     <div class="col-md-10">
+                        <div class="error-message">erreur</div>
                         <input type="text" name="adNewPrice" class="form-control" id="adNewPrice" value="12">
                     </div>
                 </div>
@@ -175,6 +152,7 @@
                         <label for="adOldPrice" class="control-label">Ancien prix (€)</label>
                     </div>
                     <div class="col-md-10">
+                        <div class="error-message">erreur</div>
                         <input type="text" name="adOldPrice" class="form-control" id="adOldPrice" value="15">
                     </div>
                 </div>
@@ -186,6 +164,7 @@
                         <label for="ad_description" class="control-label">Description de l'offre</label>
                     </div>
                     <div class="col-md-10">
+                        <div class="error-message">erreur</div>
                         <textarea id="ad_description" class="form-control" name="ad_description" >lorem ipsum sit dolor amet</textarea>
                     </div>
                 </div>
@@ -196,6 +175,7 @@
                         <label for="ad_photo_name" class="control-label">nom de la photo</label>
                     </div>
                     <div class="col-md-10">
+                        <div class="error-message">erreur</div>
                         <input type="text" name="ad_photo_name" class="form-control" id="ad_photo_name" value="">
                     </div>
                 </div>
@@ -205,6 +185,7 @@
                         <label for="ad_photo_folder" class="control-label">repertoire de la photo</label>
                     </div>
                     <div class="col-md-10">
+                        <div class="error-message">erreur</div>
                         <input type="text" name="ad_photo_folder" class="form-control" id="ad_photo_folder" value="/photos">
                     </div>
                 </div>
@@ -216,6 +197,7 @@
                         <label for="ad_state" class="control-label">Etat</label>
                     </div>
                     <div class="col-md-10">
+                        <div class="error-message">erreur</div>
                         <select id="ad_state" name="ad_state" class="form-control" size="1">
                             <option value="1">validé</option>
                             <option value="2">En cours de validation</option>
@@ -229,6 +211,7 @@
                         <label for="ad_activation" class="control-label">activation</label>
                     </div>
                     <div class="col-md-10">
+                        <div class="error-message">erreur</div>
                         <select id="ad_activation" name="ad_activation" class="form-control" size="1">
                             <option value="1">activé</option>
                             <option value="0">désactivé</option>
@@ -240,7 +223,7 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <button type="submit" class="btn btn-success" id="valider">Créer l'annonce</button>
+                        <button type="submit" class="btn btn-success" id="envoyer">Créer l'annonce</button>
                         <button type="reset" idclass="btn btn-danger">Annuler</button>
 
 
@@ -251,13 +234,7 @@
 
 
             </form>
-            <?php
-
-
-            print_r($_POST);
-
-
-            ?>
+      
 
             <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 

@@ -227,3 +227,11 @@ INSERT INTO `sozounltsnapads`.`users` (`id_location`, `id_company`, `user_firstn
 --
 
 INSERT INTO `sozounltsnapads`.`ads` (`ad_title`, `ad_begin_date`, `ad_end_date`, `ad_actual_price`, `ad_old_price`, `ad_pos_longitude`, `ad_pos_latitude`, `ad_description`, `ad_photo_name`, `ad_photo_folder`, `ad_state`, `ad_activate`, `id_category`, `id_location`, `id_user`) VALUES ('Moto 2 places', '12/07/1981', '01/08/2016', '35', '56', '11111', '222222', 'lorem ipsum sit dolor', 'qkqkskkqsdsdsqd.jpg', 'photo', '1', '1', '15', '1', '1');
+
+
+
+
+
+
+
+-- Definition des clés uniques
