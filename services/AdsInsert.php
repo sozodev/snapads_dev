@@ -35,11 +35,11 @@ $array_posts = array('$title','$begin_date','$end_date','$new_price','$old_price
 
 $messsage="";
 
-//var_dump($array_posts);
+var_dump($array_posts);
 
 // Requête
-$sql = "INSERT INTO ads (ad_title, ad_begin_date, ad_end_date,ad_actual_price,ad_old_price,ad_pos_longitude,ad_pos_latitude,ad_description,ad_photo_name,ad_photo_folder,ad_state,ad_activate,id_category,id_location,id_user)
-VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+$sql ="INSERT INTO ads (ad_title, ad_begin_date, ad_end_date,ad_actual_price,ad_old_price,ad_pos_longitude,ad_pos_latitude, ad_description,ad_photo_name, ad_photo_folder, ad_state, ad_activate, id_category, id_location, id_user)
+VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" ;
 
 try {
     //Instanciation d'un objet connexion
@@ -49,6 +49,10 @@ try {
     $dbh->exec("SET NAMES 'UTF8'");
     $stmt = $dbh->prepare($sql);
     $stmt->execute($array_posts);
+     $stmt->rowCount();
+    
+
+    
   
 } catch (PDOException $ex) {
     $messsage = $ex->getMessage();
