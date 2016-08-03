@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Snapads : créer une annonce</title>
+         <script src="js/jquery.js"></script> 
+
+<!--        <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script> -->
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+        <script src="js/PostAds.js"></script> 
+<style>
+
+            .error-message{
+                color: red;
+                font-size: 2em;
+                display: none;
+            };
+
+            .msg_error {
+                border: solid red 1px;  
+            };
+
+            p#Resultat {
+                background-color: red;
+                color: white;
+                font-size: 1.3em;
+                margin: 31px auto auto;
+                padding: 20px;
+                text-align: center;
+                width: 300px;
+            }
+
+        </style>
+
+
+
+
+    </head>
+    <body>
+        <p id="Resultat"></p>
+        <div id="message"></div>
+        <div class="container mainContainer" style="width:80%">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Créer une annonce</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="textend" >Merci de bien vouxloir saisir les informations relatives à votre annonce</p>
+                </div>
+            </div>
+
+
+            <form action="#" id="contact" method="POST" name="#" enctype="multipart/form-data" target="_self">
+
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="ad_category" class="control-label">Categorie du produit</label>
+                    </div>
+                    <div class="col-md-10">
+                        <select id="ad_category" name="ad_category" class="form-control" size="1">
+                            <option value="2">loisir</option>
+                            <option value="1">automobile</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="location" class="control-label">ID adresse</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="location" class="form-control" id="location" value="1">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="user" class="control-label">ID utilisateur</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="user" class="form-control" id="user" value="2">
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="adTitle" class="control-label">Titre de l'annonce</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="adTitle" class="form-control" id="adTitle" value="Annonce desss denière minute">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="beginDate" class="control-label">Date de debut</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="date" name="beginDate" class="form-control" id="beginDate" value="2017-07-14">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="adEndDate" class="control-label ">Date de fin</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="date"  max="2017-07-15" min="2017-07-15" name="adEndDate" class="form-control" id="adEndDate"  value="2017-07-15">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="pos_long" class="control-label">longitude</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="pos_long" class="form-control" id="pos_long" value="25555">
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="pos_lat" class="control-label">latitude</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="pos_lat" class="form-control" id="pos_lat" value="000">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="adNewPrice" class="control-label">Nouveau prix (€)</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="adNewPrice" class="form-control" id="adNewPrice" value="12">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="adOldPrice" class="control-label">Ancien prix (€)</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="adOldPrice" class="form-control" id="adOldPrice" value="15">
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="ad_description" class="control-label">Description de l'offre</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <textarea id="ad_description" class="form-control" name="ad_description" >lorem ipsum sit dolor amet</textarea>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="ad_photo_name" class="control-label">nom de la photo</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="ad_photo_name" class="form-control" id="ad_photo_name" value="exemple">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="ad_photo_folder" class="control-label">repertoire de la photo</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="ad_photo_folder" class="form-control" id="ad_photo_folder" value="/photos">
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="ad_state" class="control-label">Etat</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <select id="ad_state" name="ad_state" class="form-control" size="1">
+                            <option value="1">validé</option>
+                            <option value="2">En cours de validation</option>
+                            <option value="3">non validé</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="ad_activation" class="control-label">activation</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <select id="ad_activation" name="ad_activation" class="form-control" size="1">
+                            <option value="1">activé</option>
+                            <option value="0">désactivé</option>
+                        </select>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="button" class="btn btn-success" id="envoyer" value="Créer l'annonce">
+                        <button type="reset" class="btn btn-danger">Annuler</button>
+
+
+                    </div>
+                </div>
+
+
+
+
+            </form>
+
+
+            <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+        </div>
+
+
+    </body>
+</html>
