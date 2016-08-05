@@ -1,7 +1,7 @@
 function init() {
     $("#envoyer").click(function() {
         if (validation()) {
-        alert("Valider");
+        alert("Valider ici");
             sendForm();
         } else
         {
@@ -10,9 +10,6 @@ function init() {
     alert("C'est COOL");
     });
 }
-
-
-
 
 
 

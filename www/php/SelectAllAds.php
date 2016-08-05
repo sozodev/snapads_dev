@@ -19,7 +19,7 @@ $dbpass = '';
 //echo 'On est ICI';
 
 
-$sql = "SELECT * FROM locations";
+$sql = "SELECT * FROM ads";
 
 try {
     //Instanciation d'un objet connexion
@@ -31,9 +31,9 @@ try {
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
 
-    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $datas = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $lcn = null;
-    $lsResultas = json_encode($data);
+    $lsResultas = json_encode($datas);
    
    // print_r($lsResultas);
 

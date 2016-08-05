@@ -8,7 +8,7 @@ function init() {
 
 function SelectAllAds() {
 
-var url ="../www/php/SelectAll.php";
+var url ="../www/php/SelectAllAds.php";
 console.log(url);
 
     var jqXHR = $.post(

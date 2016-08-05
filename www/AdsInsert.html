@@ -7,9 +7,9 @@
         <title>Snapads : créer une annonce</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-           <script src="js/jquery.js"></script> 
-           <script type="text/javascript" src="js/AdsInsert_new.js"></script> 
-           
+        <script src="js/jquery.js"></script> 
+        <script type="text/javascript" src="js/AdsInsert.js"></script> 
+
         <style>
 
             .error-message{
@@ -41,7 +41,7 @@
     <body>
         <p id="Resultat"></p>
         <div id="message"></div>
-        <div class="container mainContainer" style="width:80%">
+        <div class="container mainContainer col-md-6 col-xs-12s col-md-offset-3" >
 
             <div class="row">
                 <div class="col-md-12">
@@ -56,193 +56,229 @@
             </div>
 
 
-            <!--            <form action="#" id="contact" method="POST" name="#" enctype="multipart/form-data" target="_self">-->
+            <form action="php/AdsInsert.php" id="contact" method="POST" name="#" enctype="multipart/form-data" target="_self">
+
+<!--
+                <div class="row form-group">
+
+                    <div class="col-md-2 ">
+                        <label for="IdAd" class="control-label">ID Ad</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="IdAd" class="form-control" id="IdAd" value="0">
+                    </div>
+                </div>-->
 
 
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="ad_category" class="control-label">Categorie du produit</label>
+
+
+
+
+
+
+
+
+
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="adcategory" class="control-label">Categorie du produit</label>
+                    </div>
+                    <div class="col-md-10">
+                        <select id="adcategory" name="adcategory" class="form-control" size="1">
+                            <option value="2">loisir</option>
+                            <option value="1">automobile</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="col-md-10">
-                    <select id="ad_category" name="ad_category" class="form-control" size="1">
-                        <option value="2">loisir</option>
-                        <option value="1">automobile</option>
-                    </select>
+
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="location" class="control-label">ID adresse</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="location" class="form-control" id="location" value="1">
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="location" class="control-label">ID adresse</label>
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="user" class="control-label">ID utilisateur</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="user" class="form-control" id="user" value="1">
+
+                    </div>
                 </div>
-                <div class="col-md-10">
-                    <div class="error-message">erreur</div>
-                    <input type="text" name="location" class="form-control" id="location" value="1">
+
+
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="adtitle" class="control-label">Titre de l'annonce</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="adtitle" class="form-control" id="adtitle" value="Annonce desss denière minute">
+
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="user" class="control-label">ID utilisateur</label>
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="adbegindate" class="control-label">Date de debut</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="date" name="adbegindate" class="form-control" id="adbegindate" value="2017-07-14">
+                    </div>
                 </div>
-                <div class="col-md-10">
-                    <div class="error-message">erreur</div>
-                    <input type="text" name="user" class="form-control" id="user" value="2">
 
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="adenddate" class="control-label ">Date de fin</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="date"  max="2017-07-15" min="2017-07-15" name="adenddate" class="form-control" id="AdEndDate"  value="2017-07-15">
+                    </div>
                 </div>
-            </div>
 
-
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="adTitle" class="control-label">Titre de l'annonce</label>
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="adlong" class="control-label">longitude</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="adlong" class="form-control" id="AdLong" value="25555">
+                    </div>
                 </div>
-                <div class="col-md-10">
-                    <div class="error-message">erreur</div>
-                    <input type="text" name="adTitle" class="form-control" id="adTitle" value="Annonce desss denière minute">
 
+
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="adlat" class="control-label">latitude</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="adlat" class="form-control" id="adlat" value="000">
+                    </div>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="beginDate" class="control-label">Date de debut</label>
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="newprice" class="control-label">Nouveau prix (€)</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="newprice" class="form-control" id="newprice" value="12">
+                    </div>
                 </div>
-                <div class="col-md-10">
-                    <div class="error-message">erreur</div>
-                    <input type="date" name="beginDate" class="form-control" id="beginDate" value="2017-07-14">
+
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="oldprice" class="control-label">Ancien prix (€)</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="oldprice" class="form-control" id="oldprice" value="15">
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="adEndDate" class="control-label ">Date de fin</label>
+
+
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="AdDesc" class="control-label">Description de l'offre</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <textarea id="AdDesc" class="form-control" name="addesc" >lorem ipsum sit dolor amet</textarea>
+                    </div>
                 </div>
-                <div class="col-md-10">
-                    <div class="error-message">erreur</div>
-                    <input type="date"  max="2017-07-15" min="2017-07-15" name="adEndDate" class="form-control" id="adEndDate"  value="2017-07-15">
+
+
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="adphotoname" class="control-label">nom de la photo</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="adphotoname" class="form-control" id="adphotoname" value="exemple">
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="pos_long" class="control-label">longitude</label>
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="adphotofolder" class="control-label">repertoire de la photo</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="text" name="adphotofolder" class="form-control" id="adphotofolder" value="/photos">
+                    </div>
                 </div>
-                <div class="col-md-10">
-                    <div class="error-message">erreur</div>
-                    <input type="text" name="pos_long" class="form-control" id="pos_long" value="25555">
+
+
+
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="adstate" class="control-label">Etat</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <select id="AdState" name="adstate" class="form-control" size="1">
+                            <option value="1">validé</option>
+                            <option value="2">En cours de validation</option>
+                            <option value="3">non validé</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-
-
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="pos_lat" class="control-label">latitude</label>
+                
+                
+                
+                      <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="photofile" class="control-label">Etat</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <input type="file" name ="photofile" >
+                    </div>
                 </div>
-                <div class="col-md-10">
-                    <div class="error-message">erreur</div>
-                    <input type="text" name="pos_lat" class="form-control" id="pos_lat" value="000">
+                
+                
+                
+                
+
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="adactivation" class="control-label">activation</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="error-message">erreur</div>
+                        <select id="AdActivation" name="adactivation" class="form-control" size="1">
+                            <option value="1">activé</option>
+                            <option value="0">désactivé</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="adNewPrice" class="control-label">Nouveau prix (€)</label>
+
+                <hr>
+
+                <div class="form-group form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-success" id="envoyer" value="Envoyer">
+                        <input type="button" class="btn btn-danger" value="Annuler">
+
+
+                    </div>
                 </div>
-                <div class="col-md-10">
-                    <div class="error-message">erreur</div>
-                    <input type="text" name="adNewPrice" class="form-control" id="adNewPrice" value="12">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="adOldPrice" class="control-label">Ancien prix (€)</label>
-                </div>
-                <div class="col-md-10">
-                    <div class="error-message">erreur</div>
-                    <input type="text" name="adOldPrice" class="form-control" id="adOldPrice" value="15">
-                </div>
-            </div>
-
-
-
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="ad_description" class="control-label">Description de l'offre</label>
-                </div>
-                <div class="col-md-10">
-                    <div class="error-message">erreur</div>
-                    <textarea id="ad_description" class="form-control" name="ad_description" >lorem ipsum sit dolor amet</textarea>
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="ad_photo_name" class="control-label">nom de la photo</label>
-                </div>
-                <div class="col-md-10">
-                    <div class="error-message">erreur</div>
-                    <input type="text" name="ad_photo_name" class="form-control" id="ad_photo_name" value="exemple">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="ad_photo_folder" class="control-label">repertoire de la photo</label>
-                </div>
-                <div class="col-md-10">
-                    <div class="error-message">erreur</div>
-                    <input type="text" name="ad_photo_folder" class="form-control" id="ad_photo_folder" value="/photos">
-                </div>
-            </div>
-
-
-
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="ad_state" class="control-label">Etat</label>
-                </div>
-                <div class="col-md-10">
-                    <div class="error-message">erreur</div>
-                    <select id="ad_state" name="ad_state" class="form-control" size="1">
-                        <option value="1">validé</option>
-                        <option value="2">En cours de validation</option>
-                        <option value="3">non validé</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="ad_activation" class="control-label">activation</label>
-                </div>
-                <div class="col-md-10">
-                    <div class="error-message">erreur</div>
-                    <select id="ad_activation" name="ad_activation" class="form-control" size="1">
-                        <option value="1">activé</option>
-                        <option value="0">désactivé</option>
-                    </select>
-                </div>
-            </div>
-
-            <hr>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="button" class="btn btn-success" id="envoyer" value="Créer l'annonce">
-                    <input type="button" class="btn btn-danger" value="Annuler">
-
-
-                </div>
-            </div>
 
 
 
 
-            <!--            </form>-->
+            </form>
 
-         
+
 
             <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
