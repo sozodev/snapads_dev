@@ -56,11 +56,11 @@ $sql = "SELECT * FROM ads";
 
 try {
     //Instanciation d'un objet connexion
-    $dbh = new PDO("mysql:host=$dbhost;port=$dbport;dbname=$dbname", $dbuser, $dbuserPass);
+    $pdo = new PDO("mysql:host=$dbhost;port=$dbport;dbname=$dbname", $dbuser, $dbuserPass);
     // Gestion des erreurs en mode Exception
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $dbh->exec("SET NAMES 'UTF8'");
-    $stmt = $dbh->prepare($sql);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->exec("SET NAMES 'UTF8'");
+    $stmt = $pdo->prepare($sql);
     $stmt->execute();
 
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);

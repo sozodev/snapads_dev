@@ -7,10 +7,10 @@ $sql = "SELECT * FROM users";
 
 
 try {
-	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
+	$pdo = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
 	// set the PDO error mode to exception
-	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$stmt = $dbh->prepare($sql);
+	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$stmt = $pdo->prepare($sql);
 
 print_r($stmt);
 
@@ -20,7 +20,7 @@ print_r($stmt);
 	//retourne un objet anonyme avec les noms de propriétés qui correspondent aux noms des colonnes retournés dans le jeu de résultats
 	$ads = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-	$dbh = null;
+	$pdo = null;
 	echo '{"items":'. json_encode($ads) .'}';
 } catch(PDOException $e) {
 	echo '{"error":{"text":'. $e->getMessage() .'}}';

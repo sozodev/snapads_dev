@@ -23,17 +23,16 @@ $oldprice = filter_input(INPUT_POST, 'oldprice');
 $adlong = filter_input(INPUT_POST, 'adlong');
 $adlat = filter_input(INPUT_POST, 'adlat');
 $addesc = filter_input(INPUT_POST, 'addesc');
-$adphotoname = filter_input(INPUT_POST, 'adphotoname');
+//$adphotoname = filter_input(INPUT_POST, 'adphotoname');
 $adphotofolder = filter_input(INPUT_POST, 'adphotofolder');
 $adactivation = filter_input(INPUT_POST, 'adactivation');
 $adstate = filter_input(INPUT_POST, 'adstate');
 
 
-$nomPhoto=$_FILES ['photofile']['name'];
+$adphotoname=$_FILES ['photofile']['name'];
 $photoTempo=$_FILES ['photofile']['tmp_name'];
-move_uploaded_file($photoTempo, 'image/'.$nomPhoto);
+move_uploaded_file($photoTempo, 'image/'.$adphotoname);
 
-print_r($nomPhoto);
 
 //$inputs = array($adtitle+ $adbegindate + $adenddate + $newprice + $oldprice + $adlong + $adlat + $addesc + $adphotoname + $adphotofolder + $adstate + $adactivation + $category + $location + $user);
 
@@ -62,19 +61,19 @@ try {
     
     
     //Instanciation d'un objet connexion
-    $dbh = new PDO("mysql:host=$dbhost;port=$dbport;dbname=$dbname", $dbuser, $dbuserPass);
+    $pdo = new PDO("mysql:host=$dbhost;port=$dbport;dbname=$dbname", $dbuser, $dbuserPass);
     
 
     // Gestion des erreurs en mode Exception
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //$dbh->exec("SET NAMES 'UTF8'");
-    $stmt = $dbh->prepare($sql); 
+    $ps = $pdo->prepare($sql); 
     
     $params = array($adtitle, $adbegindate, $adenddate, $newprice, $oldprice, $adlong, $adlat, $addesc,$adphotoname, $adphotofolder, $adstate,$adactivation, $category, $location,$user   );
     
-    $stmt->execute($params);
+    $ps->execute($params);
 
-    $messsage = $stmt->rowCount() . " annonce ajoutée";
+    $messsage = $ps->rowCount() . " annonce ajoutée";
 } catch (PDOException $ex) {
     $messsage = $ex->getMessage();
 }

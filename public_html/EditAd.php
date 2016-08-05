@@ -1,4 +1,41 @@
-<!DOCTYPE html>
+<?php
+
+
+//var_dump($_POST);
+
+$code=$_GET['code'];
+
+$Proprietes = parse_ini_file("snap_ads.properties");
+
+$dbhost = $Proprietes ['serveur'];
+$dbport = $Proprietes['port'];
+$dbuser = $Proprietes['user'];
+$dbuserPass = $Proprietes['mdp'];
+$dbname = $Proprietes['bd'];
+$dbpass = '';
+
+$req="SELECT * FROM ads WHERE CODE=?";
+
+try {
+    
+    $pdo = new PDO("mysql:host=$dbhost;port=$dbport;dbname=$dbname", $dbuser, $dbuserPass);
+$ps=$pdo->prepare ($req);
+$params=array($code);
+$ps->execute($params);
+$ad=$ps->fetch();
+    
+    $messsage = $ps->rowCount() . " annonce ajoutée";
+} catch (PDOException $e) {
+    $messsage = $e->getMessage();
+}
+
+print_r($messsage);
+
+
+
+?>
+
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -50,41 +87,22 @@
 
     </head>
     <body>
-        <p id="Resultat"></p>
-        <div id="message"></div>
-        <div class="container mainContainer col-md-6 col-xs-12s col-md-offset-3" >
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Create</h1>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <p class="textend" >Merci de bien vouxloir saisir les informations relatives à votre annonce</p>
-                </div>
-            </div>
-
-
-            <form action="php/AdsInsert.php" id="contact" method="POST" name="#" enctype="multipart/form-data" target="_self">
-
-<!--
-                <div class="row form-group">
-
-                    <div class="col-md-2 ">
-                        <label for="IdAd" class="control-label">ID Ad</label>
-                    </div>
-                    <div class="col-md-10">
-                        <input type="text" name="IdAd" class="form-control" id="IdAd" value="0">
-                    </div>
-                </div>-->
-
-
-
-
-
-
+        <form action="EditAd.php" id="contact" method="GET" name="#" enctype="multipart/form-data" target="_self">
 
 
 
@@ -288,13 +306,16 @@
 
 
             </form>
-
-
-
-            <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-        </div>
-
-
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </body>
 </html>
