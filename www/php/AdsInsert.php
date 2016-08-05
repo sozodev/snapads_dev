@@ -28,9 +28,12 @@ $adphotofolder = filter_input(INPUT_POST, 'adphotofolder');
 $adactivation = filter_input(INPUT_POST, 'adactivation');
 $adstate = filter_input(INPUT_POST, 'adstate');
 
-$nomphoto=$_FILES ['photofile'];
 
-print_r($nomphoto);
+$nomPhoto=$_FILES ['photofile']['name'];
+$photoTempo=$_FILES ['photofile']['tmp_name'];
+move_uploaded_file($photoTempo, 'image/'.$nomPhoto);
+
+print_r($nomPhoto);
 
 //$inputs = array($adtitle+ $adbegindate + $adenddate + $newprice + $oldprice + $adlong + $adlat + $addesc + $adphotoname + $adphotofolder + $adstate + $adactivation + $category + $location + $user);
 
@@ -65,8 +68,11 @@ try {
     // Gestion des erreurs en mode Exception
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //$dbh->exec("SET NAMES 'UTF8'");
-    $stmt = $dbh->prepare($sql);   
-    $stmt->execute(array($adtitle, $adbegindate, $adenddate, $newprice, $oldprice, $adlong, $adlat, $addesc,$adphotoname, $adphotofolder, $adstate,$adactivation, $category, $location,$user   ));
+    $stmt = $dbh->prepare($sql); 
+    
+    $params = array($adtitle, $adbegindate, $adenddate, $newprice, $oldprice, $adlong, $adlat, $addesc,$adphotoname, $adphotofolder, $adstate,$adactivation, $category, $location,$user   );
+    
+    $stmt->execute($params);
 
     $messsage = $stmt->rowCount() . " annonce ajoutée";
 } catch (PDOException $ex) {
@@ -74,6 +80,9 @@ try {
 }
 
 print_r($messsage);
+
+
+
 ?>
 
 

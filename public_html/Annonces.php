@@ -32,7 +32,7 @@ $ps->execute();
         
         <?php require_once 'header.php'; ?>'';
     
-            <div class ="col-md-6 col-xs-12s spacer col-md-6"> 
+            <div class ="col-md-6 col-xs-12s spacer col-md-offset-3 "> 
 
                 <div class="panel panel-info">
 
